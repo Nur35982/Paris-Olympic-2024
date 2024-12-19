@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<h1>Stories</h1>
+<div>
+    {% for story in stories %}
+    <div>
+        <h2>{{ story.title }}</h2>
+        <p>{{ story.content }}</p>
+        <!-- Add more details as needed -->
+    </div>
+    {% empty %}
+    <p>No stories available.</p>
+    {% endfor %}
+</div>
+{% endblock %}

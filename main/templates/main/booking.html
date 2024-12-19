@@ -1,0 +1,37 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Book Your Tickets</h2>
+    <form action="{% url 'booking' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="text" class="form-control" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+            <label for="eventName">Event Name:</label>
+            <select class="form-control" id="eventName" name="eventName">
+                <!-- Optionally populate this dropdown from your database -->
+                <option value="Event 1">Event 1</option>
+                <option value="Event 2">Event 2</option>
+                <option value="Event 3">Event 3</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="ticketQuantity">Number of Tickets:</label>
+            <input type="number" class="form-control" id="ticketQuantity" name="ticketQuantity" required min="1" max="10">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}
